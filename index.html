@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTG Card Maker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>MTG Card Maker</h1>
+        <nav>
+            <ul>
+                <li id="login-link"><a href="#">Login / Sign Up</a></li>
+                <li id="logout-link" style="display:none;"><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Authentication Section -->
+        <section id="auth-section">
+            <h2>Login to Your Account</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-username">Username:</label>
+                    <input type="text" id="login-username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" required>
+                </div>
+
+                <button type="submit">Login</button>
+            </form>
+
+            <h2>Don't have an account? Sign Up!</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="register-username">Username:</label>
+                    <input type="text" id="register-username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="register-password">Password:</label>
+                    <input type="password" id="register-password" required>
+                </div>
+
+                <button type="submit">Sign Up</button>
+            </form>
+        </section>
+
+        <!-- Card Creation Form -->
+        <section id="card-section" style="display:none;">
+            <h2>Create Your MTG Card</h2>
+            <form id="card-form">
+                <div class="form-group">
+                    <label for="card-title">Name of Card:</label>
+                    <input type="text" id="card-title" placeholder="Card Title (Required)" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mana-cost">Mana Cost:</label>
+                    <input type="text" id="mana-cost" placeholder="e.g., 5 generic 2 white" required>
+                    <div id="mana-cost-display" class="mana-cost-display"></div>
+                </div>      
+                
+                <div class="form-group">
+                    <label for="card-image">Upload Image:</label>
+                    <input type="file" id="card-image" accept="image/*" required>
+                </div>                
+
+                <div class="form-group">
+                    <label for="card-rarity">Rarity:</label>
+                    <select id="card-rarity" required>
+                        <option value="common">Common</option>
+                        <option value="uncommon">Uncommon</option>
+                        <option value="rare">Rare</option>
+                        <option value="mythic rare">Mythic Rare</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="card-type">Card Type:</label>
+                    <select id="card-type" name="card-type">
+                        <option value="artifact">Artifact</option>
+                        <option value="creature">Creature</option>
+                        <option value="enchantment">Enchantment</option>
+                        <option value="planeswalker">Planeswalker</option>
+                        <option value="land">Land</option>
+                        <option value="instant">Instant</option>
+                        <option value="battle">Battle</option>
+                        <option value="dungeon">Dungeon</option>
+                        <option value="sorcery">Sorceries</option>
+                        <option value="tribal">Tribal</option>
+                        <option value="vanguard">Vanguard</option>
+                        <option value="conspiracy">Conspiracy</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="subtype">Subtype:</label>
+                    <input type="text" id="subtype" name="subtype" placeholder="Enter subtype">
+                </div>
+
+                <div class="form-group">
+                    <label for="card-ability">Ability/Effect Area:</label>
+                    <textarea id="card-ability" placeholder="Enter the card's abilities or effects here." required></textarea>
+                </div>                
+
+                <div class="form-group">
+                    <label for="card-power">Power/Toughness:</label>
+                    <input type="number" id="card-power" placeholder="Power" required style="width: 30px; display: inline-block; text-align: center;">
+                    <span>/</span>
+                    <input type="number" id="card-toughness" placeholder="Toughness" required style="width: 30px; display: inline-block; text-align: center;">
+                </div>                
+
+                <div class="form-group">
+                    <label for="card-signature">Signature:</label>
+                    <input type="text" id="card-signature" placeholder="Enter your signature" required>
+                </div>
+
+                <button type="submit">Create Card</button>
+                <button id="view-saved-cards-button" type="button">View Saved Cards</button> <!-- New Button -->
+            </form>
+        </section>
+
+<!-- Card Preview Section -->
+<section id="card-preview-section" style="display:none;">
+    <h2>Card Preview</h2>
+    <div id="card-preview" class="card">
+        <div class="card-header">
+            <h3 id="preview-title">Card Title</h3>
+            <div id="preview-mana-cost" class="mana-cost"></div>
+        </div>
+        <div class="card-image">
+            <img id="preview-image" src="images/card-art-placeholder.jpg" alt="Card Art">
+        </div>
+        <div class="card-type">
+            <span id="preview-type">Card Type</span> - <span id="preview-subtype">Subtype</span>
+        </div>
+        <div class="card-text">
+            <p id="preview-ability">Abilities and effects will appear here.</p>
+        </div>
+        <div class="card-footer">
+            <div id="preview-power-toughness" class="power-toughness">X / X</div>
+            <div id="preview-signature" class="signature">Signature</div>
+        </div>
+    </div>
+    <button id="save-card">Save</button>
+    <button id="delete-card">Delete</button>
+</section>
+
+<!-- Saved Cards Section -->
+<section id="saved-cards-section" style="display:none;">
+    <h2>Saved Cards</h2>
+    <div id="saved-cards"></div>
+    <button id="create-new-card-button">Create New Card</button>
+</section>        
+
+    <script src="app.js"></script>
+</body>
+</html>

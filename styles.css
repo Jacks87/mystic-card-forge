@@ -1,0 +1,156 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #222;
+    color: white;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+main {
+    margin: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Style for each card */
+.card {
+    width: 350px; /* Increased width to make the card wider */
+    height: auto; /* Let the height adjust automatically based on content */
+    border: 1px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 10px; /* Slightly increased padding to match the wider card */
+    box-sizing: border-box; /* Ensure padding is included in total width and height */
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px; /* Increased padding for better balance with the wider card */
+    background-color: #e5ddc5;
+    border-bottom: 2px solid #333;
+    font-size: 14px; /* Slightly increased font size */
+}
+
+.card-header h3 {
+    font-size: 14px; /* Increased font size to match the wider card */
+    margin: 0;
+}
+
+.mana-cost {
+    display: flex;
+    margin: 6px 0;
+}
+
+.mana-cost img {
+    width: 20px; /* Increased size slightly to fit the wider card */
+    height: 20px;
+    margin-left: 5px;
+}
+
+.mana-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 3px;
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 2px solid #333;
+    margin-bottom: 6px;
+}
+
+.card-type {
+    padding: 6px;
+    background-color: #e5ddc5;
+    border-bottom: 2px solid #333;
+    font-weight: bold;
+    font-size: 14px; /* Increased font size */
+}
+
+.card-text {
+    padding: 6px;
+    font-size: 14px;
+    color: #333;
+    white-space: pre-wrap; /* Preserves line breaks and spaces */
+    line-height: 1.2em;
+    margin-bottom: 6px;
+    box-sizing: border-box;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+    background-color: #e5ddc5;
+    border-top: 2px solid #333;
+    margin-top: 6px;
+}
+
+.power-toughness {
+    font-size: 16px; /* Slightly increased font size */
+    font-weight: bold;
+    color: #333;
+}
+
+.signature {
+    font-size: 12px; /* Increased font size */
+    color: #555;
+    padding: 6px;
+}
+
+.card .buttons {
+    display: flex;
+    gap: 6px;
+    padding-bottom: 6px;
+}
+
+button {
+    padding: 6px 10px; /* Slightly increased padding to match the wider card */
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px; /* Increased font size */
+    box-sizing: border-box;
+}
+
+.votes {
+    font-size: 12px; /* Increased font size */
+    color: #333;
+    font-weight: bold;
+}
+
+/* Container for saved cards */
+#saved-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
